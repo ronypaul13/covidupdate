@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Covid App</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/covid.css" class="">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>  
+    <script class="" src="js/covid.js"></script> 
+</head>
+<body ng-app="covid" ng-controller="cntrl" class="py-4">
+    <div class="container">
+        <div class="jumbotron bg-light py-5">
+            <img class="img px-10" src="https://wordpress.accuweather.com/wp-content/uploads/2020/03/CoronavirusAnimation2.gif">
+            <h1 class="text-center">{{title}}</h1>
+            <p class="pt-2 pl-3">
+              The COVID-19 pandemic, also known as the coronavirus pandemic, is an ongoing pandemic of coronavirus disease 2019 (COVID‑19) caused by severe acute respiratory syndrome coronavirus 2 (SARS‑CoV‑2). The outbreak was identified in Wuhan, China, in December 2019.[4] The World Health Organization declared the outbreak a Public Health Emergency of International Concern on 30 January, and a pandemic on 11 March.[6][7] As of 4 May 2020, more than 3.5 million cases of COVID-19 have been reported in 187 countries and territories, resulting in more than 247,000 deaths. More than 1.12 million people have recovered.
+            </p>  
+         <!--All data--> 
+            <div class="container text-center px-5 width=10px">
+              <div class="row column-md-4">
+                <div class="card bg-warning text-white">
+                    <div class="card-body">
+                        <h4>Confirm_cases</h4> 
+                        <h5>{{all_data.confirmed.value}}</h5>
+                    </div>
+                </div>
+              <div class="row column-md-4">
+                <div class="card bg-success text-white">
+                    <div class="card-body">
+                        <h4>Recovered_cases</h4> 
+                        <h5>{{all_data.recovered.value}}</h5>
+                    </div>
+                </div>
+              </div>
+              <div class="row column-md-4">
+                <div class="card bg-danger text-white">
+                    <div class="card-body">
+                        <h4>Death_cases</h4> 
+                        <h5>{{all_data.deaths.value}}</h5>
+                    </div>
+                </div>
+              </div>
+              </div>
+
+         <!--End-->
+                    <input type="text" class="form-control mt-4" placeholder="Check Country" ng-model="c" ng-change="get_c_data()">
+                
+        <!--c_data-->
+              <div class="container text-center px-5 width=10px" ng-if="c_data">
+                <div class="row column-md-4">
+                  <div class="card bg-warning text-white">
+                      <div class="card-body">
+                          <h4>Confirm_cases</h4> 
+                          <h5>{{c_data.confirmed.value}}</h5>
+                      </div>
+                  </div>
+                <div class="row column-md-4">
+                  <div class="card bg-success text-white">
+                      <div class="card-body">
+                          <h4>Recovered_cases</h4> 
+                          <h5>{{c_data.recovered.value}}</h5>
+                      </div>
+                  </div>
+                </div>
+                <div class="row column-md-4">
+                  <div class="card bg-danger text-white">
+                      <div class="card-body">
+                          <h4>Death_cases</h4> 
+                          <h5>{{c_data.deaths.value}}</h5>
+                      </div>
+                  </div>
+                </div>
+                </div>
+            </div>
+
+      <!--END-->
+            <button type="button" class="btn btn-primary" ng-click="changeValue()" data-toggle="button" aria-pressed="false" autocomplete="off">
+                Check me..!
+              </button>
+          
+    </div>
+    <div class="aside">
+    <aside class="">
+      <div>
+        <p>Everything will be fine one day..!!</p>
+      </div>
+    </aside>
+    </div>
+
+</body>
+</html>
